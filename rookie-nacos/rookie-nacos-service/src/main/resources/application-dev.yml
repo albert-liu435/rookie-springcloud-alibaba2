@@ -1,6 +1,6 @@
 #  https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc
 server:
-  port: 8081
+  port: 8001
 spring:
   application:
     name: rookie-nacos-service
@@ -17,3 +17,5 @@ spring:
   config:
     import:
       - optional:nacos:rookie-nacos-config-dev.yaml  # 监听 DEFAULT_GROUP:test.yml
+      #这个yaml在生产环境需要配置到nacos配置中心中，如上
+      - optional:classpath:rookie-nacos-service-dev.yaml

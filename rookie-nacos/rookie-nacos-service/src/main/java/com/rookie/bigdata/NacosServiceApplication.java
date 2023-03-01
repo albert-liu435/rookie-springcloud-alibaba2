@@ -13,11 +13,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class NacosServiceApplication {
     public static void main(String[] args) {
-//        SpringApplication.run(NacosConfigApplication.class, args);
+        SpringApplication.run(NacosServiceApplication.class, args);
 
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosServiceApplication.class, args);
-        String userName = applicationContext.getEnvironment().getProperty("user.names");
-        String userAge = applicationContext.getEnvironment().getProperty("user.age");
-        System.err.println("user name :"+userName+"; age: "+userAge);
+//        ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosServiceApplication.class, args);
+//        String userName = applicationContext.getEnvironment().getProperty("user.names");
+//        String userAge = applicationContext.getEnvironment().getProperty("user.age");
+//        System.err.println("user name :"+userName+"; age: "+userAge);
     }
 }

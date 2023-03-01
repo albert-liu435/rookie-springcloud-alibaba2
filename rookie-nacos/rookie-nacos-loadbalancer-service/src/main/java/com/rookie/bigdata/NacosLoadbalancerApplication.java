@@ -12,11 +12,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class NacosLoadbalancerApplication {
     public static void main(String[] args) {
-//        SpringApplication.run(NacosLoadbalancerApplication.class, args);
+        SpringApplication.run(NacosLoadbalancerApplication.class, args);
 
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosLoadbalancerApplication.class, args);
-        String userName = applicationContext.getEnvironment().getProperty("user.names");
-        String userAge = applicationContext.getEnvironment().getProperty("user.age");
-        System.err.println("user name :"+userName+"; age: "+userAge);
+//        ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosLoadbalancerApplication.class, args);
+//        String userName = applicationContext.getEnvironment().getProperty("user.names");
+//        String userAge = applicationContext.getEnvironment().getProperty("user.age");
+//        System.err.println("user name :"+userName+"; age: "+userAge);
     }
 }
