@@ -16,6 +16,7 @@
     <modules>
         <module>rookie-nacos-config</module>
         <module>rookie-nacos-loadbalancer-service</module>
+        <module>rookie-nacos-openfeign-service</module>
         <module>rookie-nacos-service</module>
     </modules>
 
