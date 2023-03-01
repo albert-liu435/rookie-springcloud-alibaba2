@@ -14,11 +14,18 @@ spring:
         group: DEFAULT_GROUP
       discovery:
         server-addr: 127.0.0.1:8848 #Nacos地址
+    loadbalancer:
+      cache: # 负载均衡缓存配置
+        enabled: true # 开启缓存
+        ttl: 5s # 设置缓存时间
+        capacity: 256 # 设置缓存大小
+      retry: # 重试配置
+        enabled: true
+        max-retries-on-same-service-instance: 1
+        max-retries-on-next-service-instance: 1
 
-  #用于进行租户粒度的配置隔离。不同的命名空间下，可以存在相同的 Group 或 Data ID 的配置。Namespace 的常用场景之一是不同环境的配置的区分隔离，例如开发测试环境和生产环境的资源（如配置、服务）隔离等。
-#  config:
-#    import:
-#      - optional:nacos:nacos-config.properties  # 监听 DEFAULT_GROUP:test.yml
+
+
   config:
     import:
       - optional:nacos:rookie-nacos-config-dev.yaml  # 监听 DEFAULT_GROUP:test.yml
@@ -27,3 +34,10 @@ spring:
 #消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
 service-url:
   nacos-user-service: http://rookie-nacos-service
+
+feign:
+  client:
+    config:
+      default: # Feign调用超时配置
+        connectTimeout: 5000
+        readTimeout: 5000
