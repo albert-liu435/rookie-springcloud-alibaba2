@@ -1,6 +1,28 @@
-#  https://github.com/alibaba/spring-cloud-alibaba/blob/2021.x/spring-cloud-alibaba-docs/src/main/asciidoc-zh/sca-upgrade-guide.adoc
+
 server:
   port: 8081
+
+service-url:
+  api-service: http://localhost:8001
 spring:
   application:
     name: rookie-api-gateway
+  #gateway路由配置
+  cloud:
+    gateway:
+      routes:
+        - id: path_route #路由ID
+          uri: ${service-url.api-service}/employee #匹配后路由地址
+          #路由过滤器，路由过滤器只能指定路由进行使用
+          filters:
+            - AddRequestParameter=name, abc
+          predicates: # 断言，路径相匹配的进行路由
+            - Path=/employee/*
+            - Before=2023-03-12T12:30:00+08:00[Asia/Shanghai]
+
+
+
+#  cloud:
+#    gateway:
+#      globalcors:
+#        cors-configurations:
