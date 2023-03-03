@@ -35,7 +35,7 @@ public class EmployeeController {
      * @return
      */
     @RequestMapping(value = "/employee/nacos/{id}")
-    public Result paymentInfo(@PathVariable("id") int id) {
+    public Result getEmployee(@PathVariable("id") int id) {
 //        return restTemplate.getForObject(serverURL + "/employee/" + id, Result.class);
         return restTemplate.getForObject(serverURL + "/employee/{1}", Result.class, id);
     }

@@ -3,7 +3,7 @@ server:
   port: 8081
 spring:
   application:
-    name: rookie-nacos-loadbalancer-service
+    name: rookie-nacos-openfeign-service
   cloud:
     nacos:
       config:
