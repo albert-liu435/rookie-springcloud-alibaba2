@@ -5,10 +5,9 @@ import com.rookie.bigdata.domain.Employee;
 import com.rookie.bigdata.service.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Classname EmployeeController
@@ -28,13 +27,36 @@ public class EmployeeController {
 
 
 
-    @GetMapping("/{id}")
+    @RequestMapping("/{id}")
     public Result getEmployee(@PathVariable int id) {
         Employee employee=employeeService.getEmployee(id);
         return  Result.succ(employee);
     }
 
+    @RequestMapping("/getUserByIds")
+    public Result getEmployeeByIds(@RequestParam List<Integer> ids) {
 
+
+//        System.out.println(ids);
+//        return Result.succ();
+        List<Employee> employees=employeeService.getEmployeeByIds(ids);
+        return  Result.succ(employees);
+    }
+
+
+    @RequestMapping("/create")
+    public Result create(@RequestBody Employee employee) {
+        Integer integer=employeeService.create(employee);
+        return  Result.succ();
+    }
+
+    @RequestMapping("/createList")
+    public Result createList(@RequestBody List<Employee> employees) {
+        Integer integer=employeeService.createList(employees);
+        return  Result.succ();
+    }
+
+    //更新
 
 
 

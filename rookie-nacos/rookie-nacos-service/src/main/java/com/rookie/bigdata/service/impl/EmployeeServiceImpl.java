@@ -6,6 +6,8 @@ import com.rookie.bigdata.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Classname EmployeeService
  * @Description
@@ -19,9 +21,25 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
 
+
     @Override
     public Employee getEmployee(int id) {
         return employeeMapper.getEmployee(id);
+    }
+
+    @Override
+    public List<Employee> getEmployeeByIds(List<Integer> ids) {
+        return employeeMapper.getEmployeeByIds(ids);
+    }
+
+    @Override
+    public Integer create(Employee employee) {
+        return employeeMapper.create(employee);
+    }
+
+    @Override
+    public Integer createList(List<Employee> employees) {
+        return employeeMapper.createList(employees);
     }
 
     //查询数据库

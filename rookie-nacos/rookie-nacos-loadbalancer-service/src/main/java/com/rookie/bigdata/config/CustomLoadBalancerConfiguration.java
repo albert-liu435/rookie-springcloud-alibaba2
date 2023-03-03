@@ -49,6 +49,7 @@ public class CustomLoadBalancerConfiguration {
     }
 
 
+//    //http请求转换
 //    @Bean
 //    public LoadBalancerRequestTransformer transformer() {
 //        return new LoadBalancerRequestTransformer() {

@@ -9,4 +9,27 @@
             where id=#{id}
     </select>
 
+    <select id="getEmployeeByIds" resultType="com.rookie.bigdata.domain.Employee">
+        select  id,name,age,salary
+        from employee
+        WHERE id IN
+        <foreach collection="ids" index="index" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+    <insert id="create" parameterType="com.rookie.bigdata.domain.Employee">
+        insert into employee (name,age,salary)
+                values (#{name},#{age},#{salary})
+    </insert>
+
+    <insert id="createList" parameterType="java.util.List">
+        insert into employee (name,age,salary)
+        values
+        <foreach collection="list" separator="," item="item">
+            (#{item.name},#{item.age},#{item.salary})
+        </foreach>
+    </insert>
+
 </mapper>
