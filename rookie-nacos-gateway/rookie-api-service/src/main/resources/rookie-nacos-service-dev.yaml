@@ -1,0 +1,17 @@
+#数据库配置在真实的生产环境中 是配置到nacos配置中心的
+##################################rookie-nacos-service-dev.yaml#############################################
+mybatis:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 80
+      pool-name: HikariCP
