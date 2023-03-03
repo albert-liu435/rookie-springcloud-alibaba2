@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rookie.bigdata.mapper.EmployeeMapper">
+
+
+    <select id="getEmployee" resultType="com.rookie.bigdata.domain.Employee">
+        select  id,name,age,salary
+            from employee
+            where id=#{id}
+    </select>
+
+    <select id="getEmployeeByIds" resultType="com.rookie.bigdata.domain.Employee">
+        select  id,name,age,salary
+        from employee
+        WHERE id IN
+        <foreach collection="ids" index="index" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+    <insert id="create" parameterType="com.rookie.bigdata.domain.Employee">
+        insert into employee (name,age,salary)
+                values (#{name},#{age},#{salary})
+    </insert>
+
+    <insert id="createList" parameterType="java.util.List">
+        insert into employee (name,age,salary)
+        values
+        <foreach collection="list" separator="," item="item">
+            (#{item.name},#{item.age},#{item.salary})
+        </foreach>
+    </insert>
+
+</mapper>

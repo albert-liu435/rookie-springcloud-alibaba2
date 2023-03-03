@@ -11,6 +11,8 @@
     <modules>
         <!--        <module>rookie-nacos</module>-->
         <module>rookie-nacos</module>
+        <module>rookie-oauth2</module>
+        <module>rookie-nacos-gateway</module>
     </modules>
 
 
